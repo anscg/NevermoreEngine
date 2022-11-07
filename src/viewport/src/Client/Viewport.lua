@@ -1,4 +1,5 @@
 --[=[
+	Creates an ViewportFrame with drag camera controls and automatic fitting.
 	@class Viewport
 ]=]
 
@@ -26,6 +27,11 @@ local Viewport = setmetatable({}, BasicPane)
 Viewport.ClassName = "Viewport"
 Viewport.__index = Viewport
 
+--[=[
+    Creates a Viewport.
+
+    @return BasicPane 
+]=]
 function Viewport.new()
 	local self = setmetatable(BasicPane.new(), Viewport)
 
@@ -55,6 +61,18 @@ function Viewport.new()
 	return self
 end
 
+--[=[
+    Creates a Viewport and render it to Blend.
+
+    ```lua
+	Viewport.blend({
+		Instance = path.to.instance
+	})
+    ```
+
+    @param props? { string } --Assigned to the ViewportFrame or assign to FieldOfView, Instance or Transparency. 
+    @return Observable<Instance>
+]=]
 function Viewport.blend(props)
 	assert(type(props) == "table", "Bad props")
 	return Observable.new(function(sub)
@@ -105,6 +123,10 @@ function Viewport:SetFieldOfView(fieldOfView)
 	self._fieldOfView.Value = fieldOfView
 end
 
+--[=[
+    Set the targeted Instance.
+    @param instance Instance
+]=]
 function Viewport:SetInstance(instance)
 	assert(typeof(instance) == "Instance" or instance == nil, "Bad instance")
 
