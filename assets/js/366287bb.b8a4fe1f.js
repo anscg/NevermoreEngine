@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[3463],{81398:e=>{e.exports=JSON.parse('{"functions":[],"properties":[],"types":[],"name":"HSColorPicker","desc":"Picker for hue and Saturation in HSV. See [HSVColorPicker]","source":{"line":5,"path":"src/colorpicker/src/Client/HSV/HSColorPicker.lua"}}')}}]);
